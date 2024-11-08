@@ -64,11 +64,11 @@ def slack_post(title):
         "channel": "dev",
         "text": f"Task \"{title}\" was completed."
     }
+
     headers = {
         "Authorization": f"Bearer {os.environ.get("SLACK_API_TOKEN")}"
     }
 
-    
     requests.post(url=url,data=body, headers=headers)
 
 def update_model(model, updates):
