@@ -64,9 +64,10 @@ def slack_post(title):
         "channel": "dev",
         "text": f"Task \"{title}\" was completed."
     }
-
+    token = os.environ.get("SLACK_API_TOKEN")
+    
     headers = {
-        "Authorization": f"Bearer {os.environ.get("SLACK_API_TOKEN")}"
+        "Authorization": f"Bearer {token}"
     }
 
     requests.post(url=url,data=body, headers=headers)
